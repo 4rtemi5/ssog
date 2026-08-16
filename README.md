@@ -86,7 +86,7 @@ into strip detectors, late layers go global:
 indices, so you can train at 224² and simply evaluate at a higher resolution.
 Only the small position embedding needs a bilinear resize; the Gaussians
 re-evaluate on the bigger grid like nothing happened. On the d384 champion,
-288² scores **73.7%** — *higher* than the 72.0% at train resolution — without
+288² scores **73.7%**, *higher* than the 72.0% at train resolution, without
 one gradient step of fine-tuning.
 
 **Speed that scales.** The N×N matrix never exists: O(N·√N·d) instead of
