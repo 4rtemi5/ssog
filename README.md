@@ -1,11 +1,5 @@
 # SSOG: A Few Gaussians Is All You Need
 
-> **License.** This project is free for non-commercial, academic, and
-> open-source use under the AGPLv3. For commercial use, SaaS deployment, or to
-> bypass the AGPL restrictions, you must purchase a commercial license.
-> See [LICENSE](LICENSE) (`AGPL-3.0-or-later`) and
-> [COMMERCIAL_LICENSE.md](COMMERCIAL_LICENSE.md).
-
 **SSOG (Separable Sum of Gaussians)** swaps the transformer's content-scored
 attention for a learned geometric field. Each attention head is a handful of
 Gaussian atoms over *relative position*, plus tiny bounded nudges that let
@@ -243,7 +237,9 @@ ay, ax = attn.axis_kernels()   # (H, R, Gh, Gh), (H, R, Gw, Gw)
 
 Copyright (c) 2026 Raphael Pisoni.
 
-SSOG is licensed under the GNU Affero General Public License v3.0 or later
-([LICENSE](LICENSE)). Commercial terms without AGPL copyleft are available
-under a separate written agreement; see
-[COMMERCIAL_LICENSE.md](COMMERCIAL_LICENSE.md).
+
+> **License.** This project is free for non-commercial, academic, and
+> open-source use under the AGPLv3. For commercial use, SaaS deployment, or to
+> bypass the AGPL restrictions, you must purchase a commercial license.
+> See [LICENSE](LICENSE) (`AGPL-3.0-or-later`) and
+> [COMMERCIAL_LICENSE.md](COMMERCIAL_LICENSE.md).
