@@ -3,14 +3,49 @@ name = "ssog"
 version = "0.1.0"
 description = "SSOG: attention as a steerable Gaussian field over relative position"
 readme = "README.md"
+license = { file = "LICENSE" }
 requires-python = ">=3.10"
-dependencies = [
+authors = [{ name = "Raphael Pisoni", email = "raphael.pisoni+ssog@gmail.com" }]
+classifiers = [
+    "License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)",
+]
+# Backends are extras so `uv add ssog` / `uv sync` never pulls JAX or PyTorch.
+dependencies = []
+
+[project.optional-dependencies]
+jax = [
     "jax>=0.4",
     "flax>=0.8",
 ]
-
-[project.optional-dependencies]
+jax-cuda = [
+    "jax[cuda12]>=0.4",
+    "flax>=0.8",
+]
+torch = [
+    "torch>=2.4",
+]
+examples-jax = [
+    "jax>=0.4",
+    "flax>=0.8",
+    "optax>=0.2",
+    "datasets>=2.18",
+    "Pillow>=10.0",
+]
+examples-jax-cuda = [
+    "jax[cuda12]>=0.4",
+    "flax>=0.8",
+    "optax>=0.2",
+    "datasets>=2.18",
+    "Pillow>=10.0",
+]
+examples-torch = [
+    "torch>=2.4",
+    "torchvision>=0.19",
+]
+# Back-compat alias for examples-jax.
 examples = [
+    "jax>=0.4",
+    "flax>=0.8",
     "optax>=0.2",
     "datasets>=2.18",
     "Pillow>=10.0",
@@ -22,3 +57,9 @@ build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
 include = ["ssog*"]
+
+# uv: treat this repo as an installable package (editable on sync).
+# default-groups = [] so `uv sync` is backend-free; pick extras explicitly.
+[tool.uv]
+package = true
+default-groups = []

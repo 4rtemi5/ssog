@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Raphael Pisoni
+# SPDX-License-Identifier: AGPL-3.0-or-later
 """Attention layers: SSOG and the dot-product baseline it replaces.
 
 SSOG (Separable Sum of Gaussians) replaces content-scored attention with a

@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Raphael Pisoni
+# SPDX-License-Identifier: AGPL-3.0-or-later
 """A minimal vision transformer that runs with either attention flavor.
 
 Deliberately small: patch embedding, a learned position embedding, pre-norm
@@ -12,7 +14,7 @@ from typing import Literal
 import jax.numpy as jnp
 from flax import linen as nn
 
-from ssog.attention import DotAttention, SSOGAttention
+from ssog.jax.attention import DotAttention, SSOGAttention
 
 
 class Block(nn.Module):

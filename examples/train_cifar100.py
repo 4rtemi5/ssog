@@ -1,9 +1,15 @@
+# Copyright (c) 2026 Raphael Pisoni
+# SPDX-License-Identifier: AGPL-3.0-or-later
 """Train a small ViT on CIFAR-100 with SSOG or dot-product attention.
 
 Quick compare (enough to see the small-data gap)::
 
-    python examples/train_cifar100.py --attn ssog --epochs 10
-    python examples/train_cifar100.py --attn dot  --epochs 10
+    uv run --extra examples-jax examples/train_cifar100.py --attn ssog --epochs 10
+    uv run --extra examples-jax examples/train_cifar100.py --attn dot  --epochs 10
+
+GPU JAX::
+
+    uv run --extra examples-jax-cuda examples/train_cifar100.py --attn ssog --epochs 10
 
 Full recipe defaults to 100 epochs (closer to the blog numbers). Downloads
 CIFAR-100 via HuggingFace ``datasets`` on first run.
@@ -28,7 +34,7 @@ import numpy as np
 import optax
 from datasets import load_dataset
 
-from ssog import ViT
+from ssog.jax import ViT
 
 # Classic CIFAR "RandomCrop(32, padding=4)": reflect-free zero pad, then crop.
 CROP_PAD = 4
